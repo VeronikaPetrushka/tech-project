@@ -1,0 +1,220 @@
+.Container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Hero {
+    position: relative;
+    background-image: url('../../assets/hero-back.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 350px;
+    color: white;
+    overflow: hidden;
+    padding: 40px;
+    border-radius: 30px;
+}
+
+.Hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.Hero h1,
+.Hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.OuterWrapper {
+    margin-top: 40px;
+}
+
+.mainTitle {
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.AboutUsWrapper {
+    margin-top: 50px;
+    height: 100%;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    margin: 25px 0;
+    background-color: #d4d4d4;
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* color: rgba(47, 47, 47, 0.5); */
+    /* padding: 0 15px; */
+}
+
+.Wrapper {
+    margin-top: 10px;
+    background-color: var(--white);
+    border-radius: 30px;
+    height: 100%;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDesc {
+    margin-top: 20px;
+    line-height: 1.2em;
+    font-size: 22px;
+}
+
+.InnerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 700px;
+    text-align: left;
+    line-height: 1.2em;
+}
+
+span {
+    font-weight: 500;
+}
+
+.decorPics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.picsBox {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 15px 15px 30px #26282b85;
+}
+
+.camper {
+    background-image: url('../../assets/Container@2x.png');
+    margin-left: -130px;
+    margin-bottom: -70px;
+}
+
+.support {
+    background-image: url('../../assets/customer-support.webp');
+    margin-left: 40px;
+}
+
+.bicycle {
+    background-image: url('../../assets/bicycle.jpg');
+    margin-left: -130px;
+    margin-top: -70px;
+}
+
+.guideWrapper {
+    margin-top: 50px;
+    background-color: inherit;
+    border-radius: 30px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.guideList {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    line-height: 1.2em;
+}
+
+.guideItem {
+    width: calc(25% - 10px);
+    height: 280px;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.guideItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.guideItem>div {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.guideItem:nth-child(1) {
+    background-image: url('../../assets/camper-1.jpg');
+    background-size: cover;
+}
+
+.guideItem:nth-child(2) {
+    background-image: url('../../assets/camper-2.jpg');
+    background-size: cover;
+}
+
+.guideItem:nth-child(3) {
+    background-image: url('../../assets/camper-3.webp');
+    background-size: cover;
+}
+
+.guideItem:nth-child(4) {
+    background-image: url('../../assets/camper-4.webp');
+    background-size: cover;
+}
