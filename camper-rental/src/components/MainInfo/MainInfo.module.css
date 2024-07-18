@@ -20,15 +20,17 @@
     border-radius: 30px;
 }
 
-.Hero::before {
+.Overlay {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
+    display: flex;
+    align-items: center;
 }
 
 .Hero h1,
@@ -75,8 +77,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* color: rgba(47, 47, 47, 0.5); */
-    /* padding: 0 15px; */
+}
+
+.ServiceWrapper {
+    margin-top: 10px;
+    background-color: var(--red);
+    border-radius: 30px;
+    height: 100%;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .Wrapper {
@@ -125,7 +136,9 @@ span {
 .picsBox {
     width: 150px;
     height: 150px;
-    background-size: cover;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-color: white;
     background-position: center;
     border-radius: 20px;
     overflow: hidden;
@@ -133,20 +146,37 @@ span {
 }
 
 .camper {
-    background-image: url('../../assets/Container@2x.png');
+    background-image: url('../../assets/bus.png');
     margin-left: -130px;
     margin-bottom: -70px;
 }
 
 .support {
-    background-image: url('../../assets/customer-support.webp');
+    background-image: url('../../assets/customer-support.png');
     margin-left: 40px;
 }
 
 .bicycle {
-    background-image: url('../../assets/bicycle.jpg');
+    background-image: url('../../assets/bicycle.png');
     margin-left: -130px;
     margin-top: -70px;
+}
+
+.quality {
+    background-image: url('../../assets/quality.png');
+    margin-left: 170px;
+    margin-bottom: 65px;
+}
+
+.price {
+    background-image: url('../../assets/price.png');
+    margin-top: -130px;
+}
+
+.booking {
+    background-image: url('../../assets/booking.png');
+    margin-top: -75px;
+    margin-left: 170px;
 }
 
 .guideWrapper {
@@ -171,7 +201,6 @@ span {
     position: relative;
     border-radius: 30px;
     overflow: hidden;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,17 +209,7 @@ span {
     background-size: cover;
     background-position: center;
     color: white;
-}
-
-.guideItem::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    font-size: 24px;
 }
 
 .guideItem>div {
