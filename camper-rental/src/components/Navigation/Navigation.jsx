@@ -2,16 +2,16 @@ import css from './Navigation.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
-    const buildLinkClass = (isActive) => {
+    const buildLinkClass = ({ isActive }) => {
         return `${css.navLink} ${isActive ? css.active : ''}`;
     };
 
     return (
         <nav className={css.Navigation}>
-            <NavLink className={buildLinkClass(true)} to="/">
+            <NavLink className={buildLinkClass} to="/">
                 Home
             </NavLink>
-            <NavLink className={buildLinkClass(false)} to="/catalogue">
+            <NavLink className={buildLinkClass} to="/catalogue">
                 Catalogue
             </NavLink>
         </nav>

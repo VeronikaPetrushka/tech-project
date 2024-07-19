@@ -1,10 +1,17 @@
-import css from './CamperList.module.css'
+import css from './CampersList.module.css'
 import { selectCampers } from "../../redux/selectors.js"
-import { useSelector } from 'react-redux';
-import CamperItem from '../CamperItem/CamperItem';
+import { useDispatch, useSelector } from 'react-redux';
+import CamperItem from '../CamperItem/CamperItem.jsx';
+import { useEffect } from 'react';
+import { fetchCampers } from '../../redux/operations.js';
 
 const CampersList = () => {
-    const campers = useSelector(selectCampers)
+  const dispatch = useDispatch();
+  const campers = useSelector(selectCampers);
+
+  useEffect(() => {
+    dispatch(fetchCampers())
+  }, [dispatch])
 
     return (
     <div className={css.container}>

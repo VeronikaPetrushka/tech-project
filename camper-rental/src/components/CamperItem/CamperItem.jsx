@@ -4,7 +4,7 @@ import css from './CamperItem.module.css'
 const CamperItem = (item) => {
     return (
         <div className={css.card}>
-            <img src="" alt="" />
+            {/* <img src={item.gallery[0]} alt={item.name} /> */}
             <div className={css.cardInfo}>
                 <div className={css.cardTitle}>
                     <p>{item.name}</p>
@@ -31,9 +31,11 @@ const CamperItem = (item) => {
                     <li className={css.featureItem}>{item.adults} adults</li>
                     <li className={css.featureItem}>{item.transmission}</li>
                     <li className={css.featureItem}>{item.engine}</li>
-                    <li className={css.featureItem}>{item.details.kitchen === 1 ? "Kitchen" : null}</li>
+                    {/* {item.details.kitchen === 1 &&
+                        <li className={css.featureItem}>Kitchen</li>}
                     <li className={css.featureItem}>{item.details.beds} beds</li>
-                    <li className={css.featureItem}>{item.details.airConditioner === 1 ? "AC" : null}</li>
+                    {item.details.airConditioner === 1 &&
+                        <li className={css.featureItem}>AC</li>} */}
                 </ul>
                 <button type='button' className={css.MoreBtn}>Show more</button>
             </div>
