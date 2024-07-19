@@ -11,7 +11,7 @@ const Navigation = () => {
             <NavLink className={buildLinkClass(true)} to="/">
                 Home
             </NavLink>
-            <NavLink className={buildLinkClass(false)} to="/catalogue">
+            <NavLink className={buildLinkClass(false)} to="/camper">
                 Catalogue
             </NavLink>
         </nav>
