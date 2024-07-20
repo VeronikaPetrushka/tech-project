@@ -36,18 +36,18 @@ const CamperItem = ({ item }) => {
                     <div className={css.someTitleBox}>
                         <p>€ {price}</p>
                         <Icon
-                        width={'38'}
-                        height={'38'}
+                        width={'24'}
+                        height={'24'}
                         iconName="heart"
-                        styles={css.icon}
+                        styles={css.heartIcon}
                         />
                     </div>
                 </div>
                 <div className={css.addInfo}>
                     <div className={css.ratingBox}>
                         <Icon
-                        width={'38'}
-                        height={'38'}
+                        width={'16'}
+                        height={'16'}
                         iconName="rating"
                         styles={css.ratingIcon}
                         />
@@ -55,22 +55,73 @@ const CamperItem = ({ item }) => {
                     </div>
                     <div className={css.locationBox}>
                         <Icon
-                        width={'38'}
-                        height={'38'}
-                        iconName="rating"
-                        styles={css.ratingIcon}
+                        width={'16'}
+                        height={'16'}
+                        iconName="location"
+                        styles={css.locationIcon}
                         />
                         <p className={css.locationText}>{location}</p>
                     </div>
                 </div>
                 <p className={css.description}>{description}</p>
                 <ul className={css.featuresList}>
-                    <li className={css.featureItem}>{adults} adults</li>
-                    <li className={css.featureItem}>{transmission}</li>
-                    <li className={css.featureItem}>{engine}</li>
-                    {kitchen && <li className={css.featureItem}>Kitchen</li>}
-                    {beds && <li className={css.featureItem}>{beds} beds</li>}
-                    {airConditioner && <li className={css.featureItem}>AC</li>}
+                    <li className={css.featureItem}>
+                        <Icon
+                        width={'20'}
+                        height={'20'}
+                        iconName="adults"
+                        styles={css.featureIcon}
+                        />
+                        {adults} adults
+                    </li>
+                    <li className={css.featureItem}>
+                        <Icon
+                        width={'20'}
+                        height={'20'}
+                        iconName="transmission"
+                        styles={css.featureIcon}
+                        />
+                        {transmission}
+                    </li>
+                    <li className={css.featureItem}>
+                        <Icon
+                        width={'20'}
+                        height={'20'}
+                        iconName="engine"
+                        styles={css.featureIcon}
+                        />
+                        {engine}
+                    </li>
+                    {kitchen &&
+                        <li className={css.featureItem}>
+                        <Icon
+                        width={'20'}
+                        height={'20'}
+                        iconName="kitchen"
+                        styles={css.featureIcon}
+                        />
+                            Kitchen
+                        </li>}
+                    {beds &&
+                        <li className={css.featureItem}>
+                        <Icon
+                        width={'20'}
+                        height={'20'}
+                        iconName="bed"
+                        styles={css.featureIcon}
+                        />
+                            {beds} beds
+                        </li>}
+                    {airConditioner &&
+                        <li className={css.featureItem}>
+                        <Icon
+                        width={'20'}
+                        height={'20'}
+                        iconName="ac"
+                        styles={css.featureIcon}
+                        />
+                            AC
+                        </li>}
                 </ul>
                 <button type='button' className={css.MoreBtn}>Show more</button>
             </div>

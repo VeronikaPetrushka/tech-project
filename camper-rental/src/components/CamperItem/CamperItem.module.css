@@ -36,6 +36,7 @@
     font-weight: 700;
     font-size: 26px;
     width: 100%;
+    margin-bottom: 14px;
 }
 
 .someTitleBox {
@@ -45,7 +46,8 @@
     gap: 10px;
 }
 
-.icon {
+.heartIcon {
+    fill: none;
     stroke: var(--black);
 }
 
@@ -55,7 +57,7 @@
     align-items: center;
     gap: 16px;
     font-size: 17px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .ratingBox {
@@ -74,6 +76,11 @@
     align-items: center;
 }
 
+.locationIcon {
+    stroke: var(--black);
+    fill: none;
+}
+
 .description {
     width: 100%;
     white-space: nowrap;
@@ -88,7 +95,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .featureItem {
@@ -98,8 +105,14 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+}
+
+.featureIcon {
+    fill: none;
+    stroke: var(--black);
+    margin-right: 8px;
 }
 
 .MoreBtn {
@@ -114,4 +127,6 @@
     cursor: pointer;
     text-decoration: none;
     font-size: medium;
+    height: 56px;
+    width: 166px;
 }
