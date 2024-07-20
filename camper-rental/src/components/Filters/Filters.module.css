@@ -44,15 +44,16 @@
     left: 18px;
 }
 
-.filters {
+.filtersTitle {
     color: var(--grey);
     margin-bottom: 14px;
     font-size: 18px;
 }
 
-.equipmentFilter {
+.filter {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .filterTitle {

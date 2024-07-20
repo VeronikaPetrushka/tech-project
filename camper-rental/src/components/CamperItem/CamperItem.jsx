@@ -117,7 +117,7 @@ const CamperItem = ({ item }) => {
                         <Icon
                         width={'20'}
                         height={'20'}
-                        iconName="ac"
+                        iconName="airConditioner"
                         styles={css.featureIcon}
                         />
                             AC

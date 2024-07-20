@@ -1,17 +1,21 @@
 import css from './CampersList.module.css'
-import { selectCampers } from "../../redux/selectors.js"
-import { useDispatch, useSelector } from 'react-redux';
+// import { selectCampers } from "../../redux/selectors.js"
+// import { useDispatch, useSelector } from 'react-redux';
 import CamperItem from '../CamperItem/CamperItem.jsx';
-import { useEffect, useState } from 'react';
-import { fetchCampers } from '../../redux/operations.js';
+import {
+  // useEffect,
+  useState
+} from 'react';
+// import { fetchCampers } from '../../redux/operations.js';
+import PropTypes from 'prop-types'
 
-const CampersList = () => {
-  const dispatch = useDispatch();
-  const campers = useSelector(selectCampers);
+const CampersList = ({filteredCampers}) => {
+  // const dispatch = useDispatch();
+  // const campers = useSelector(selectCampers);
 
-  useEffect(() => {
-    dispatch(fetchCampers())
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCampers())
+  // }, [dispatch]);
 
  const [itemsPerPage, setItemsPerPage] = useState(() => {
     const savedItemsPerPage = localStorage.getItem('itemsPerPage');
@@ -39,7 +43,7 @@ const CampersList = () => {
     localStorage.setItem('itemsPerPage', 4)
   }
 
-  const visibleCampers = campers.slice(0, itemsPerPage);
+  const visibleCampers = filteredCampers.slice(0, itemsPerPage);
 
   return (
     <div className={css.container}>
@@ -51,15 +55,80 @@ const CampersList = () => {
         ))}
       </ul>
       <div className={css.btnBox}>
-      {campers.length > itemsPerPage && (
+      {filteredCampers.length > itemsPerPage && (
         <button className={css.loadMoreBtn} onClick={handleLoadMore}>Load More</button>
       )}
-      {campers.length > 4 && (
+      {itemsPerPage > 4 && (
         <button className={css.loadMoreBtn} onClick={handleShowLess}>Show less</button>
       )}
       </div>
     </div>
   )
 }
+
+CampersList.propTypes = {
+  filteredCampers:
+    PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      gallery: PropTypes.oneOfType([
+            PropTypes.arrayOf(PropTypes.string),
+            PropTypes.string
+        ]).isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        rating: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        location: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        adults: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        children: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]),
+        transmission: PropTypes.string.isRequired,
+        engine: PropTypes.string.isRequired,
+        form: PropTypes.string.isRequired,
+        length: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        width: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        // heigth: PropTypes.oneOfType([
+        //     PropTypes.string,
+        //     PropTypes.number
+        // ]).isRequired,
+        tank: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        consumption: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]).isRequired,
+        details: PropTypes.oneOfType([
+            PropTypes.object,
+            PropTypes.string
+        ]),
+            reviews: PropTypes.arrayOf(PropTypes.shape({
+            reviewer_name: PropTypes.string,
+            reviewer_rating: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number
+            ]),
+            comment: PropTypes.string
+        }))
+    }).isRequired,
+)}
 
 export default CampersList;
