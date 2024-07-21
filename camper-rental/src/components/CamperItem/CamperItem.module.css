@@ -39,6 +39,14 @@
     margin-bottom: 14px;
 }
 
+.cardName {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
 .someTitleBox {
     display: flex;
     justify-content: center;

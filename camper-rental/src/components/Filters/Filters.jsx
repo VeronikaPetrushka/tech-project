@@ -11,7 +11,13 @@ const equipmentLabels = {
   shower: 'Shower/WC'
 };
 
-const Filter = ({ locations, onLocationChange, onEquipmentChange, onSearch }) => {
+const typeLabels = {
+        panelTruck: 'Van',
+        fullyIntegrated: 'Fully Integrated',
+        alcove: 'Alcove',
+};
+
+const Filter = ({ locations, onLocationChange, onEquipmentChange, onTypeChange, onSearch }) => {
 
     const [location, setLocation] = useState("");
     const [selectedEquipment, setSelectedEquipment] = useState({
@@ -21,19 +27,31 @@ const Filter = ({ locations, onLocationChange, onEquipmentChange, onSearch }) =>
         TV: false,
         shower: false
     });
+    const [selectedType, setSelectedType] = useState({
+        panelTruck: false,
+        fullyIntegrated: false,
+        alcove: false,
+    })
 
     const handleLocationChange = (e) => {
         setLocation(e.target.value);
         onLocationChange(e.target.value)
     };
 
-    const handleEquipmentChange = (e) => {
-        const { name, checked } = e.target;
-            setSelectedEquipment(prev => ({
-            ...prev,
-            [name]: checked
+    const handleEquipmentChange = (key) => {
+        setSelectedEquipment(prev => ({
+        ...prev,
+        [key]: !prev[key]
         }));
-        onEquipmentChange({ [name]: checked });
+        onEquipmentChange({ [key]: !selectedEquipment[key] });
+    };
+
+    const handleTypeChange = (key) => {
+        setSelectedType(prev => ({
+        ...prev,
+        [key]: !prev[key]
+        }));
+        onTypeChange({ [key]: !selectedType[key] });
     };
 
     return (
@@ -64,18 +82,14 @@ const Filter = ({ locations, onLocationChange, onEquipmentChange, onSearch }) =>
                 <h2 className={css.filterTitle}>Vehicle equipment</h2>
                 <div className={css.line}></div>
                 <ul className={css.filtersList}>
-                    {['transmission', 'airConditioner', 'kitchen', 'TV', 'shower'].map(key => (
-                        <li className={css.filtersItem} key={key}>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name={key}
-                                    checked={selectedEquipment[key]}
-                                    onChange={handleEquipmentChange}
-                                    />
-                                <Icon width={'32'} height={'32'} iconName={key} styles={css.featureIcon} />
-                                {equipmentLabels[key]}
-                            </label>
+                    {Object.keys(equipmentLabels).map(key => (
+                        <li
+                            className={`${css.filtersItem} ${selectedEquipment[key] ? css.selected : ''}`}
+                            key={key}
+                            onClick={() => handleEquipmentChange(key)}
+                        >
+                            <Icon width={'32'} height={'32'} iconName={key} styles={css.featureIcon} />
+                            {equipmentLabels[key]}
                         </li>
                     ))}
                 </ul>
@@ -84,33 +98,16 @@ const Filter = ({ locations, onLocationChange, onEquipmentChange, onSearch }) =>
                 <h2 className={css.filterTitle}>Vehicle type</h2>
                 <div className={css.line}></div>
                 <ul className={css.filtersList}>
-                    <li className={css.filtersItem}>
-                        <Icon
-                            width={'40'}
-                            height={'28'}
-                            iconName="van"
-                            styles={css.featureIcon}
-                        />
-                        Van
-                    </li>
-                    <li className={css.filtersItem}>
-                        <Icon
-                            width={'40'}
-                            height={'28'}
-                            iconName="van-2"
-                            styles={css.featureIcon}
-                        />
-                        Fully Integrated
-                    </li>
-                    <li className={css.filtersItem}>
-                        <Icon
-                            width={'40'}
-                            height={'28'}
-                            iconName="van-3"
-                            styles={css.featureIcon}
-                        />
-                        Alcove
-                    </li>
+                    {Object.keys(typeLabels).map(key => (
+                        <li
+                            className={`${css.filtersItem} ${selectedType[key] ? css.selected : ''}`}
+                            key={key}
+                            onClick={() => handleTypeChange(key)}
+                        >
+                            <Icon width={'40'} height={'28'} iconName={key} styles={css.featureIcon} />
+                            {typeLabels[key]}
+                        </li>
+                    ))}
                 </ul>
             </div>
             <button className={css.searchBtn} onClick={onSearch}>Search</button>
@@ -123,6 +120,7 @@ Filter.propTypes = {
         PropTypes.arrayOf(PropTypes.string).isRequired,
         onLocationChange: PropTypes.func.isRequired,
         onEquipmentChange: PropTypes.func.isRequired,
+        onTypeChange: PropTypes.func.isRequired,
         onSearch: PropTypes.func.isRequired,
 }
 

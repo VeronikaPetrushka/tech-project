@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/operations";
 import { selectCampers } from "../../redux/selectors";
 import { useState, useEffect } from "react";
+import DetailsModal from "../../components/Modal/Modal";
 
 const CataloguePage = () => {
 
@@ -19,7 +20,14 @@ const CataloguePage = () => {
         TV: false,
         shower: false,
     });
+    const [selectedType, setSelectedType] = useState({
+        panelTruck: false,
+        fullyIntegrated: false,
+        alcove: false,
+    })
     const [filteredCampers, setFilteredCampers] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedCamper, setSelectedCamper] = useState(null);
 
     useEffect(() => {
       dispatch(fetchCampers())
@@ -40,6 +48,13 @@ const CataloguePage = () => {
         }));
     };
 
+    const handleTypeChange = (type) => {
+        setSelectedType(prevType => ({
+            ...prevType,
+            ...type
+            }));
+    }
+
   const handleSearch = () => {
     const filtered = campers.filter(camper => {
       const locationMatches = selectedLocation ? camper.location === selectedLocation : true;
@@ -49,8 +64,10 @@ const CataloguePage = () => {
         if (key === 'transmission') return camper.transmission === 'automatic';
         return camper.details[key] === 1;
       });
-
-      return locationMatches && equipmentMatches;
+        
+      const typeMatches = Object.keys(selectedType).some(key => selectedType[key] && camper.form === key);
+        
+      return locationMatches && equipmentMatches && typeMatches;
     });
 
     setFilteredCampers(filtered);
@@ -60,15 +77,36 @@ const CataloguePage = () => {
         Set(campers.map(camper => camper.location))
     ];
 
+    const handleOpenModal = (camper) => {
+        setSelectedCamper(camper);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedCamper(null);
+    };
+
     return (
         <div className={css.page}>
             <Filter
                 locations={locations}
                 onLocationChange={handleLocationChange}
                 onEquipmentChange={handleEquipmentChange}
+                onTypeChange={handleTypeChange}
                 onSearch={handleSearch}
             />
-            <CampersList filteredCampers={filteredCampers} />
+            <CampersList
+                filteredCampers={filteredCampers}
+                onShowMore={handleOpenModal}
+            />
+            {selectedCamper && (
+                <DetailsModal
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    item={selectedCamper}
+                />
+      )}
         </div>
     )
 }

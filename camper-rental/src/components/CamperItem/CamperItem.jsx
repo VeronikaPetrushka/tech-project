@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import css from './CamperItem.module.css';
 
-const CamperItem = ({ item }) => {
+const CamperItem = ({ item, onShowMore }) => {
     const {
         gallery = [],
         name,
@@ -32,7 +32,7 @@ const CamperItem = ({ item }) => {
             </div>
             <div className={css.cardInfo}>
                 <div className={css.cardTitle}>
-                    <p>{name}</p>
+                    <p className={css.cardName}>{name}</p>
                     <div className={css.someTitleBox}>
                         <p>€ {price}</p>
                         <Icon
@@ -123,7 +123,7 @@ const CamperItem = ({ item }) => {
                             AC
                         </li>}
                 </ul>
-                <button type='button' className={css.MoreBtn}>Show more</button>
+                <button type='button' className={css.MoreBtn} onClick={() => onShowMore(item)}>Show more</button>
             </div>
         </div>
     );
@@ -170,6 +170,7 @@ CamperItem.propTypes = {
             comment: PropTypes.string
         }))
     }).isRequired,
+    onShowMore: PropTypes.func.isRequired,
 };
 
 export default CamperItem;
