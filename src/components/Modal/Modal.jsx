@@ -21,7 +21,7 @@ export const DetailsModal = ({ isOpen, onClose, item }) => {
 DetailsModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  item: PropTypes.object // Define more specific shape if needed
+  item: PropTypes.object
 };
 
 export default DetailsModal;

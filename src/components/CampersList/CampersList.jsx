@@ -89,10 +89,6 @@ CampersList.propTypes = {
       PropTypes.string,
       PropTypes.number
     ]).isRequired,
-    // height: PropTypes.oneOfType([
-    //   PropTypes.string,
-    //   PropTypes.number
-    // ]).isRequired,
     tank: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
