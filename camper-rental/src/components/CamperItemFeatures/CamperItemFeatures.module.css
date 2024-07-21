@@ -1,3 +1,12 @@
+.featursWrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.featuresSideContainer {
+    width: 448px;
+}
+
 .featuresList {
     display: flex;
     flex-wrap: wrap;
@@ -20,4 +29,38 @@
     fill: none;
     stroke: var(--black);
     margin-right: 8px;
+}
+
+.detailsTitle {
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.line {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    background-color: #d4d4d4;
+    margin: 24px 0;
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detailsItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
 }

@@ -1,6 +1,7 @@
 import css from './CamperItemFeatures.module.css'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
+import BookForm from '../BookForm/BookForm'
 
 const CamperItemFeatures = ({item}) => {
 
@@ -34,7 +35,8 @@ const CamperItemFeatures = ({item}) => {
 
     return (
         <div className={css.featursWrapper}>
-            <ul className={css.featuresList}>
+            <div className={css.featuresSideContainer}>
+                <ul className={css.featuresList}>
                     <li className={css.featureItem}>
                         <Icon
                         width={'20'}
@@ -87,7 +89,7 @@ const CamperItemFeatures = ({item}) => {
                         <Icon
                         width={'20'}
                         height={'20'}
-                        iconName="airConditioner"
+                        iconName="AC"
                         styles={css.featureIcon}
                         />
                             air conditioner
@@ -212,6 +214,8 @@ const CamperItemFeatures = ({item}) => {
                     </li>
                 </ul>
             </div>
+            </div>
+            <BookForm />
         </div>
     )
 }

@@ -68,8 +68,14 @@ const CamperItemDetails = ({item, onClose}) => {
             </ul>
             <p className={css.description}>{description}</p>
             <div className={css.toggleButtons}>
-                <button onClick={() => handleToggle('features')} className={css.toggleButton}>Features</button>
-                <button onClick={() => handleToggle('reviews')} className={css.toggleButton}>Reviews</button>
+                <button onClick={() => handleToggle('features')}
+                    className={`${css.toggleBtn} ${showFeatures ? css.selected : css.unselected}`}>
+                    Features
+                </button>
+                <button onClick={() => handleToggle('reviews')}
+                    className={`${css.toggleBtn} ${!showFeatures ? css.selected : css.unselected}`}>
+                    Reviews
+                </button>
             </div>
             <div className={css.line}></div>
             {showFeatures ? <CamperItemFeatures item={item} /> : <CamperItemReviews reviews={reviews} />
