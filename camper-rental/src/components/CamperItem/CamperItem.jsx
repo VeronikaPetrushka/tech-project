@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import css from './CamperItem.module.css';
+import { useState, useEffect } from 'react';
 
 const CamperItem = ({ item, onShowMore }) => {
     const {
+        _id,
         gallery = [],
         name,
         price,
@@ -25,6 +27,28 @@ const CamperItem = ({ item, onShowMore }) => {
 
     const reviewsCount = reviews.length;
 
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const isItemFavorite = favorites.some(fav => fav._id === _id);
+        setIsFavorite(isItemFavorite);
+    }, [_id]);
+
+    const handleFavoriteToggle = () => {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let updatedFavorites;
+
+        if (isFavorite) {
+            updatedFavorites = favorites.filter(fav => fav._id !== _id);
+        } else {
+            updatedFavorites = [...favorites, item];
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        setIsFavorite(!isFavorite);
+    };
+
     return (
         <div className={css.card}>
             <div className={css.imageBox}>
@@ -36,10 +60,11 @@ const CamperItem = ({ item, onShowMore }) => {
                     <div className={css.someTitleBox}>
                         <p>€ {price}</p>
                         <Icon
-                        width={'24'}
-                        height={'24'}
-                        iconName="heart"
-                        styles={css.heartIcon}
+                            width={'24'}
+                            height={'24'}
+                            iconName= "heart"
+                            styles={`${isFavorite ? css.heartIconActive : css.heartIcon}`}
+                            onClick={handleFavoriteToggle}
                         />
                     </div>
                 </div>
@@ -132,6 +157,7 @@ const CamperItem = ({ item, onShowMore }) => {
 
 CamperItem.propTypes = {
     item: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
         gallery: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.string),
             PropTypes.string

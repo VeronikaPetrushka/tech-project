@@ -59,6 +59,11 @@
     stroke: var(--black);
 }
 
+.heartIconActive {
+    fill: var(--red);
+    stroke: var(--red);
+}
+
 .addInfo {
     display: flex;
     justify-content: center;
@@ -95,7 +100,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--grey);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     font-size: 17px;
 }
 

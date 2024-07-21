@@ -1,9 +1,9 @@
 import sprite from '../assets/sprite.svg'
 import PropTypes from 'prop-types';
 
-const Icon = ({ width, height, iconName, styles, style }) => {
+const Icon = ({ width, height, iconName, styles, style, onClick }) => {
   return (
-    <svg width={width} height={height} className={styles} style={style}>
+    <svg width={width} height={height} className={styles} style={style} onClick={onClick}>
       <use href={`${sprite}#${iconName}`}></use>
     </svg>
   );
@@ -15,6 +15,7 @@ Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
   styles: PropTypes.string,
   style: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default Icon;
