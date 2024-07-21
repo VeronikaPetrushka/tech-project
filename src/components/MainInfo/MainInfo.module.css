@@ -1,0 +1,484 @@
+.Container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+}
+
+.Hero {
+    position: relative;
+    background-image: url('../../assets/hero-back.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 350px;
+    color: white;
+    overflow: hidden;
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.Hero h1,
+.Hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.OuterWrapper {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.mainTitle {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.Hero p {
+    display: none;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.AboutUsWrapper {
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    margin: 25px 0;
+    background-color: #d4d4d4;
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ServiceWrapper {
+    margin-top: 10px;
+    background-color: var(--red);
+    border-radius: 30px;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.Wrapper {
+    margin-top: 10px;
+    background-color: var(--white);
+    border-radius: 30px;
+    height: 100%;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDesc {
+    margin-top: 20px;
+    line-height: 1.2em;
+    font-size: 18px;
+}
+
+.mainList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    line-height: 1.2em;
+    font-size: 17px;
+}
+
+span {
+    font-weight: 500;
+}
+
+.decorPics {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.picsBox {
+    width: 150px;
+    height: 150px;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 15px 15px 30px #26282b85;
+}
+
+.camper {
+    background-image: url('../../assets/bus.png');
+    margin-left: -130px;
+    margin-bottom: -70px;
+}
+
+.support {
+    background-image: url('../../assets/customer-support.png');
+    margin-left: 40px;
+}
+
+.bicycle {
+    background-image: url('../../assets/bicycle.png');
+    margin-left: -130px;
+    margin-top: -70px;
+}
+
+.quality {
+    background-image: url('../../assets/quality.png');
+    margin-left: 170px;
+    margin-bottom: 65px;
+}
+
+.price {
+    background-image: url('../../assets/price.png');
+    margin-top: -130px;
+}
+
+.booking {
+    background-image: url('../../assets/booking.png');
+    margin-top: -75px;
+    margin-left: 170px;
+}
+
+.guideWrapper {
+    margin-top: 50px;
+    background-color: inherit;
+    border-radius: 30px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.guideList {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    line-height: 1.2em;
+}
+
+.guideItem {
+    width: 300px;
+    height: 280px;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 24px;
+}
+
+.guideItem>div {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.guideItem:nth-child(1) {
+    background-image: url('../../assets/camper-1.jpg');
+    background-size: cover;
+}
+
+.guideItem:nth-child(2) {
+    background-image: url('../../assets/camper-2.jpg');
+    background-size: cover;
+}
+
+.guideItem:nth-child(3) {
+    background-image: url('../../assets/camper-3.webp');
+    background-size: cover;
+}
+
+.guideItem:nth-child(4) {
+    background-image: url('../../assets/camper-4.webp');
+    background-size: cover;
+}
+
+.scrollText {
+    color: var(--grey);
+    opacity: 0.6;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .guideWrapper {
+        overflow: hidden;
+    }
+
+    .guideList {
+        display: flex;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+
+    .guideItem {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        min-width: 100%;
+    }
+
+    .navigation-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        height: 10px;
+        width: 10px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .dot.active {
+        background-color: #717171;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .Container {
+        min-width: 375px;
+    }
+
+    .guideWrapper {
+        margin-top: 50px;
+        background-color: inherit;
+        border-radius: 30px;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .Container {
+        min-width: 768px;
+    }
+
+    .Hero {
+        flex-direction: column;
+    }
+
+    .Hero p {
+        display: block;
+    }
+
+    .mainList {
+        width: 470px;
+    }
+
+    .InnerWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .decorPics {
+        display: flex;
+    }
+
+    .picsBox {
+        width: 100px;
+        height: 100px;
+        background-size: 70px;
+    }
+
+    .camper {
+        background-image: url('../../assets/bus.png');
+        margin-left: 70px;
+        margin-top: -30px;
+    }
+
+    .support {
+        background-image: url('../../assets/customer-support.png');
+        margin-left: 10px;
+        margin-top: 70px;
+    }
+
+    .bicycle {
+        background-image: url('../../assets/bike-city-svgrepo-com.png');
+        margin-left: 70px;
+        margin-top: 0;
+    }
+
+    .quality {
+        background-image: url('../../assets/quality.png');
+        margin-left: -5px;
+        margin-top: -30px;
+    }
+
+    .price {
+        background-image: url('../../assets/price.png');
+        margin-top: -90px;
+        margin-left: 110px;
+        margin-right: 30px;
+    }
+
+    .booking {
+        background-image: url('../../assets/booking.png');
+        margin-top: -70px;
+        margin-left: -5px;
+    }
+
+    .guideList {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .guideItem {
+        width: 359px;
+        font-size: 22x;
+    }
+
+    .scrollText {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .Container {
+        width: 1280px;
+    }
+
+    .Hero {
+        margin-top: 32px;
+    }
+
+    .mainTitle {
+        font-size: 42px;
+        font-weight: 700;
+    }
+
+    .Hero p {
+        font-size: 22px;
+    }
+
+    .mainDesc {
+        width: 1000px;
+    }
+
+    .mainList {
+        width: 800px;
+        font-size: 19px;
+    }
+
+    .InnerWrapper {
+        display: flex;
+        gap: 15px;
+    }
+
+    .decorPics {
+        display: flex;
+    }
+
+    .picsBox {
+        width: 120px;
+        height: 120px;
+        background-size: 100px;
+    }
+
+    .camper {
+        background-image: url('../../assets/bus.png');
+        margin-left: 190px;
+        margin-top: -30px;
+    }
+
+    .support {
+        background-image: url('../../assets/customer-support.png');
+        margin-left: 40px;
+        margin-top: 30px;
+    }
+
+    .bicycle {
+        background-image: url('../../assets/bike-city-svgrepo-com.png');
+        margin-left: 190px;
+        margin-top: -30px;
+    }
+
+    .quality {
+        background-image: url('../../assets/quality.png');
+        margin-left: 20px;
+        margin-top: -30px;
+    }
+
+    .price {
+        background-image: url('../../assets/price.png');
+        margin-top: -120px;
+        margin-left: 170px;
+        margin-right: 30px;
+    }
+
+    .booking {
+        background-image: url('../../assets/booking.png');
+        margin-top: -50px;
+        margin-left: 20px;
+    }
+
+    .guideList {
+        flex-wrap: nowrap;
+    }
+
+    .guideItem {
+        width: 300px;
+    }
+}
