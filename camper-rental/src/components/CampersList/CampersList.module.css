@@ -20,14 +20,39 @@
     align-items: center;
     border: 2px solid var(--light);
     background-color: inherit;
-    padding: 16px 32px;
+    padding: 12px 32px;
     color: var(--black);
-    width: 145px;
-    height: 56px;
+    width: 150px;
+    height: 40px;
     font-size: medium;
     border-radius: 100px;
+    text-wrap: nowrap;
 }
 
-.loadMoreBtn:hover {
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+
     border-color: var(--red);
+}
+
+@media screen and (min-width: 768px) {
+    .campersList {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+
+    .campersList {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    .loadMoreBtn {
+        width: 145px;
+        height: 56px;
+        padding: 16px 32px;
+    }
 }

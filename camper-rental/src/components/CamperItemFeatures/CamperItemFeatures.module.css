@@ -1,10 +1,11 @@
 .featursWrapper {
     display: flex;
+    flex-direction: column;
     gap: 24px;
 }
 
 .featuresSideContainer {
-    width: 448px;
+    width: 100%;
 }
 
 .featuresList {
@@ -16,13 +17,13 @@
 
 .featureItem {
     border-radius: 100px;
-    padding: 12px 18px;
+    padding: 6px 12px;
     background-color: var(--light);
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 5s00;
 }
 
 .featureIcon {
@@ -62,5 +63,84 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .featursWrapper {
+        flex-direction: row;
+    }
+
+    .featuresSideContainer {
+        width: 352px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .featursWrapper {
+        display: flex;
+        gap: 24px;
+    }
+
+    .featuresSideContainer {
+        width: 448px;
+    }
+
+    .featuresList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+
+    .featureItem {
+        border-radius: 100px;
+        padding: 12px 18px;
+        background-color: var(--light);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .featureIcon {
+        fill: none;
+        stroke: var(--black);
+        margin-right: 8px;
+    }
+
+    .detailsTitle {
+        font-weight: 700;
+        font-size: 19px;
+    }
+
+    .line {
+        position: relative;
+        height: 2px;
+        width: 100%;
+        background-color: #d4d4d4;
+        margin: 24px 0;
+    }
+
+    .line::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .detailsList {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .detailsItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+    }
 }

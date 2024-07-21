@@ -7,7 +7,7 @@
 
 .topModalContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 8px;
 }
@@ -17,24 +17,34 @@
     background-color: transparent;
 }
 
+.featureIcon {
+    width: 22px;
+    height: 22px;
+}
+
 .camperName {
-    font-weight: 700;
-    font-size: 26px;
+    font-weight: 600;
+    font-size: 22px;
+    width: 250px;
+    text-wrap: wrap;
 }
 
 .addInfo {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     font-size: 17px;
     margin-bottom: 16px;
+    flex-direction: column;
 }
 
 .ratingBox {
     display: flex;
     gap: 4px;
     align-items: center;
+    margin-left: -10px;
+    justify-content: flex-start;
 }
 
 .ratingText {
@@ -45,6 +55,7 @@
     display: flex;
     gap: 4px;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .locationIcon {
@@ -53,8 +64,8 @@
 }
 
 .camperPrice {
-    font-weight: 700;
-    font-size: 26px;
+    font-weight: 600;
+    font-size: 22px;
     margin-bottom: 24px;
 }
 
@@ -62,19 +73,20 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    overflow-x: auto;
     flex-wrap: nowrap;
-    width: 100%;
     gap: 16px;
     margin-bottom: 24px;
+    padding: 0 10px;
 }
 
 .imageBox {
+    flex: 0 0 auto;
     width: 290px;
     height: 310px;
     overflow: hidden;
     border-radius: 10px;
-    border: 1.5px solid;
-    border-color: rgb(206, 205, 205);
+    border: 1.5px solid rgb(206, 205, 205);
 }
 
 .image {
@@ -130,4 +142,42 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 375px) {
+    .imageBox {
+        width: 315px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .topModalContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    .camperName {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    .featureIcon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .addInfo {
+        flex-direction: row;
+    }
+
+    .ratingBox {
+        margin-left: 0;
+    }
+
+    .camperPrice {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
 }

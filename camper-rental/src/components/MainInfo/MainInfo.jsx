@@ -1,4 +1,5 @@
 import css from './MainInfo.module.css'
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 const MainInfo = () => {
     return (
@@ -112,6 +113,7 @@ const MainInfo = () => {
                                 </div>
                             </li>
                         </ul>
+                        <p className={css.scrollText}>Scroll <MdOutlineKeyboardDoubleArrowRight style={{ fontSize: '20px', color: '#475467' }}/></p>
                 </div>
 
             </section>

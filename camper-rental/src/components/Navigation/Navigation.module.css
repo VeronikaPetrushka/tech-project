@@ -8,15 +8,15 @@
 }
 
 .navLink {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
     text-decoration: none;
     color: var(--black);
     /* default */
     border-radius: 35px;
     background-color: inherit;
-    padding: 10px 16px;
-    width: 150px;
+    padding: 6px 12px;
+    width: 100px;
 }
 
 .active {
@@ -25,4 +25,14 @@
     color: white;
     padding: 10px 16px;
     width: 150px;
+}
+
+@media screen and (min-width: 1440px) {
+    .navLink {
+        font-size: 20px;
+        font-weight: 700;
+        /* default */
+        padding: 10px 16px;
+        width: 150px;
+    }
 }

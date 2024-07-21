@@ -8,15 +8,15 @@ const Navigation = () => {
         return `${css.navLink} ${isActive ? css.active : ''}`;
     };
 
-    const shouldShowFavorites = location.pathname.startsWith('/catalogue') || location.pathname.startsWith('/favorites');
+    const shouldShowFavorites = location.pathname.startsWith('/catalog') || location.pathname.startsWith('/favorites');
 
     return (
         <nav className={css.Navigation}>
             <NavLink className={buildLinkClass} to="/">
                 Home
             </NavLink>
-            <NavLink className={buildLinkClass} to="/catalogue">
-                Catalogue
+            <NavLink className={buildLinkClass} to="/catalog">
+                Catalog
             </NavLink>
             {shouldShowFavorites && (
                 <NavLink className={buildLinkClass} to="/favorites">
