@@ -55,23 +55,27 @@ const CataloguePage = () => {
             }));
     }
 
-  const handleSearch = () => {
-    const filtered = campers.filter(camper => {
-      const locationMatches = selectedLocation ? camper.location === selectedLocation : true;
+    const handleSearch = () => {
+        const filtered = campers.filter(camper => {
+            const locationMatches = selectedLocation ? camper.location === selectedLocation : true;
 
-      const equipmentMatches = Object.keys(selectedEquipment).every(key => {
-        if (!selectedEquipment[key]) return true;
-        if (key === 'transmission') return camper.transmission === 'automatic';
-        return camper.details[key] === 1;
-      });
-        
-      const typeMatches = Object.keys(selectedType).some(key => selectedType[key] && camper.form === key);
-        
-      return locationMatches && equipmentMatches && typeMatches;
-    });
+            const equipmentMatches = Object.keys(selectedEquipment).every(key => {
+                if (!selectedEquipment[key]) return true;
+                if (key === 'transmission') return camper.transmission === 'automatic';
+                return camper.details[key] === 1;
+            });
 
-    setFilteredCampers(filtered);
-  };
+            const typeMatches = Object.keys(selectedType).every(key => {
+                if (!selectedType[key]) return true;
+                return camper.form === key;
+            });
+
+            return locationMatches && equipmentMatches && typeMatches;
+        });
+
+        setFilteredCampers(filtered);
+    };
+
 
     const locations = [...new
         Set(campers.map(camper => camper.location))

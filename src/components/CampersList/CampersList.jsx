@@ -33,6 +33,8 @@ const visibleCampers = useMemo(() => filteredCampers.slice(0, itemsPerPage), [fi
 
   return (
     <div className={css.container}>
+      {filteredCampers.length > 0 ? (
+      <>
       <ul className={css.campersList}>
         {visibleCampers.map(item => (
           <li className={css.camperItem} key={item._id}>
@@ -48,6 +50,10 @@ const visibleCampers = useMemo(() => filteredCampers.slice(0, itemsPerPage), [fi
         <button className={css.loadMoreBtn} onClick={handleShowLess}>Show less</button>
       )}
       </div>
+      </>
+      ) : (
+        <p className={css.noItemsMessage}>Sorry, there is no item matches...</p>
+      )}
     </div>
   )
 }

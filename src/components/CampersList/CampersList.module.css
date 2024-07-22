@@ -35,10 +35,20 @@
     border-color: var(--red);
 }
 
+.noItemsMessage {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
 @media screen and (min-width: 768px) {
     .campersList {
         flex-wrap: wrap;
         flex-direction: row;
+    }
+
+    .noItemsMessage {
+        font-size: 18px;
     }
 
 }
@@ -54,5 +64,11 @@
         width: 145px;
         height: 56px;
         padding: 16px 32px;
+    }
+
+    .noItemsMessage {
+        margin-top: 300px;
+        margin-left: 300px;
+        font-size: 24px;
     }
 }
