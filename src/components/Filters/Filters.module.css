@@ -125,6 +125,11 @@
     align-self: center;
 }
 
+.searchBtn:hover,
+.searchBtn:focus {
+    background-color: var(--redHover);
+}
+
 
 @media screen and (min-width: 375px) {
     .container {
